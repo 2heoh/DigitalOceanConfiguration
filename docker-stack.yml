@@ -21,6 +21,7 @@ services:
       - "4444:4444"
     volumes:
       - /dev/shm:/dev/shm
+
   visualizer:
     image: dockersamples/visualizer
     ports:
@@ -28,9 +29,6 @@ services:
     stop_grace_period: 1m30s
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
-    deploy:
-      placement:
-        constraints: [node.role == manager]
 
 volumes:
   jenkins-home:
